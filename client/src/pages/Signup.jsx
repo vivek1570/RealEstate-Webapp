@@ -73,9 +73,9 @@ function Signup() {
         </button>
       </form>
       <div className="flex flex-row gap-2 mt-5">
-        <p>Dont have a account?</p>
+        <p>Have an account?</p>
         <Link to="/sign-in">
-          <p className="text-blue-600">Sign up</p>
+          <p className="text-blue-600">Sign In</p>
         </Link>
       </div>
       {error && <p className="text-red-600">{error}</p>}
