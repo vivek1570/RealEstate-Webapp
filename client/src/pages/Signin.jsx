@@ -30,9 +30,8 @@ function Signin() {
         body: JSON.stringify(user),
       });
       const data = await res.json();
-      console.log("if no error", data.message);
       if (data.success === false) {
-        dispatch(signInFailure(d.message));
+        dispatch(signInFailure(data.message));
         return;
       }
       // handle successful signup
