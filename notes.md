@@ -1,0 +1,171 @@
+# Estate Project
+
+## React-Redux
+
+### `useSelector`
+
+`useSelector` is a property of React-Redux used for retrieving the current user from local storage.
+
+### `useRef`
+
+`useRef` is used for referencing an element to another element. For example, to open a file browser by clicking an image:
+
+```jsx
+const fileInputRef = useRef();
+
+const handleImageClick = () => {
+  fileInputRef.current.click();
+};
+
+return (
+  <>
+    <img
+      src="your-image.jpg"
+      onClick={handleImageClick}
+      alt="Click to upload"
+    />
+    <input type="file" ref={fileInputRef} style={{ display: "none" }} />
+  </>
+);
+```
+
+### Callback Function in React
+
+- To center text, use `text-center`.
+- To center an image, use `self-center`.
+- `justify-between` adds space between elements.
+- Use `<span>` to align text in one row.
+- Use `flex` for elements wrapped with a `<div>`.
+- `<input type="file" />` is used for choosing an image or file from the system.
+- `onChange` event listener can be used for change events on a particular element.
+
+### Firebase Setup
+
+- Configure default rules and conditions in Firebase storage.
+- Use the `onChange` property on an input field to store data. Pass a callback function with an argument `e` where you can use `e.target.value`.
+
+```jsx
+const handleChange = (e) => {
+  console.log(e.target.value);
+};
+
+return <input type="text" onChange={handleChange} />;
+```
+
+## `useEffect`
+
+The `useEffect` Hook allows you to perform side effects in your components. It gets called when some component changes.
+
+```jsx
+useEffect(() => {
+  // Your side effect logic
+}, [dependencies]); // dependencies determine when the function is called
+```
+
+### JavaScript Arrow Functions
+
+In JavaScript, arrow functions are commonly used. You can add a name to the function and pass arguments inside the starting bracket.
+
+## Firebase
+
+### `getStorage`
+
+`getStorage` is a function from `firebase/storage` used for uploading files to Firebase as needed.
+
+### Firebase.js
+
+Inside `firebase.js`, set up an app that contains everything as per the user in Firebase. Import it as needed to get essential details about the account.
+
+### Unique Names
+
+For making any name unique, you can add `new Date().getTime();`.
+
+### `getDownloadURL`
+
+Firebase has `getDownloadURL`, which can be used after uploading a file if you want to reuse it.
+
+### Adding Text Inside a `span`
+
+Inside a `span`, you can add text like this:
+
+```jsx
+const name = "world";
+
+return <span>{`Hello, ${name}`}</span>;
+```
+
+---
+
+This is a better-organized Markdown version of the provided information, making it easier to read and understand.
+
+### post method
+
+```jsx
+post("/signup", handlerfucntion);
+```
+
+in post handler behaves as a the route to our sever wherer the function need to be called.
+
+### common:
+
+> in a backend api contains routes ,models, controllers
+
+- routes determines the path, model gives the model structure strogly associated with databse andcontrollers are the function which we are call during the routes and http method handlers
+
+- next is using for handling error in post , where we pass
+
+```jsx
+
+const function=(req,res,next)=>{
+    ....
+}
+```
+
+- for updating post request need to do an additional verification step to add where we determines the updating is correct user only
+
+> getting info from the cookie for verification we need an addtional package called cookie-parser from where we can get the current ser info and details about the user.
+
+> by adding cookieParser from cookie-parse and app.use(cookieParser()) we can get the get info from cookie
+
+in a callback function what does it mean by req and how req and respond assciated ?
+
+> if anywhere if you wanto to pass the password first thing is encrypt the password
+
+### mongodb
+
+- her for password updates use bcryptjs and hashSync
+- for updating the user use findByIdAndUpdate(id,handle_function);
+
+- if a function is using await must use the async key word on start of the function call
+
+`findByIdAndUpdate`
+
+```jsx
+Model.findByIdAndUpdate(id, update, options, callback);
+```
+
+id: The \_id of the document you want to find and update.
+update: An object containing the update operations to be applied to the document.
+options (optional): An object with additional options (e.g., { new: true } to return the updated document).
+callback (optional): A callback function to execute once the operation is complete.
+
+The "Content-Type" header is an HTTP header that indicates the type of data that is being sent in the HTTP response body. It tells the client (e.g., a web browser or another server) how to interpret the content of the response.
+
+When you send an HTTP response from a server, you can specify the "Content-Type" header to describe the format of the data being sent. Common values for the "Content-Type" header include:
+
+    text/plain: Indicates plain text data.
+    text/html: Indicates HTML data.
+    application/json: Indicates JSON data.
+
+```
+cookie parser can use for store the current user info and , for updating and deleting we can use it
+```
+
+```
+json web token is used for converting the id to a speicied token in our cookies, and using res.cookies we can store it in our local storage ans later usage for cookies
+
+```
+
+```jsx
+const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+```
