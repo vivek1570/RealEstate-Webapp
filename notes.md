@@ -169,3 +169,9 @@ json web token is used for converting the id to a speicied token in our cookies,
 ```jsx
 const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
 ```
+
+onchange ,will reflect the change in input field to formdata
+
+e.preventDefualt() is used for preventing the defualt action done by event listerns where the, instead it allows to perfomr some custom logic for our form submmission
+
+> try and catch is used for anticipating erros occured in the block of statment int try, in try if we occur any type of error we can easily jump into catch error .
