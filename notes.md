@@ -175,3 +175,17 @@ onchange ,will reflect the change in input field to formdata
 e.preventDefualt() is used for preventing the defualt action done by event listerns where the, instead it allows to perfomr some custom logic for our form submmission
 
 > try and catch is used for anticipating erros occured in the block of statment int try, in try if we occur any type of error we can easily jump into catch error .
+
+---
+
+frist we will make the route and controlling of update or delete method via any testing api tools here we are using insomnia or postman also we can use it
+
+user.params.id gettting from the url we are passing into the endpoint , the retrived from the cookie storage inside the system
+
+> for a delete method usually we donto need to pass any header and body.Only the method delete enough, and after finishing up the deleet hadle in a page we get the res via
+
+```jsx
+data = await res.json();
+```
+
+cookies need to be deleted after the delete account , that can be performed via res.clearCookie("access_token")
