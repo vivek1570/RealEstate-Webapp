@@ -21,6 +21,7 @@ import {
 } from "../redux/user/userSlice.js";
 import { useDispatch } from "react-redux";
 import { set } from "mongoose";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -185,10 +186,16 @@ function Profile() {
         />
         <button
           disabled={loading}
-          className="bg-slate-700 p-3 rounded-lg hover:opacity-95 disabled:opacity-80"
+          className="bg-slate-700 p-3 rounded-lg hover:opacity-95 disabled:opacity-80  text-white uppercase"
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link
+          className="bg-green-700 p-3 rounded-lg hover:opacity-95 disabled:opacity-80 text-center text-white uppercase"
+          to={"/create-listing"}
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between ">
         <span

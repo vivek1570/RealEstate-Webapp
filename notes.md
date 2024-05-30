@@ -199,3 +199,8 @@ app.use("/api/listing", func_listing);
 ```
 
 model creation can be done in a separate file inside in models folder where we can add the required models list
+
+### tailwind styling
+
+use sm:flex-col for mobile screens
+adding additional sm: along with actual size will lead to an mmobile size screen view
