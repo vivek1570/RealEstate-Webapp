@@ -189,3 +189,13 @@ data = await res.json();
 ```
 
 cookies need to be deleted after the delete account , that can be performed via res.clearCookie("access_token")
+
+---
+
+for creating a new route in we should start from index.js
+
+```jsx
+app.use("/api/listing", func_listing);
+```
+
+model creation can be done in a separate file inside in models folder where we can add the required models list
