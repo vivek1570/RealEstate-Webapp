@@ -8,3 +8,12 @@ export const createListing = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteListing = async (req, res, next) => {
+  try {
+    await Listing.findByIdAndDelete(req.params.id);
+    return res.status(200).json({ message: "listing deleted successfully" });
+  } catch (error) {
+    next(error);
+  }
+};
