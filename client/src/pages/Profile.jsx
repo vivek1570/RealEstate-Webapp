@@ -20,8 +20,8 @@ import {
   signoutUserFailure,
 } from "../redux/user/userSlice.js";
 import { useDispatch } from "react-redux";
-import { set } from "mongoose";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -35,6 +35,7 @@ function Profile() {
   const [userListings, setuserListings] = useState([]);
   const [listbtn, setListbtn] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   //   console.log(formdata);
   //   console.log(userListings);
 
@@ -149,11 +150,13 @@ function Profile() {
   };
 
   const handleDeleteList = (id) => async () => {
+    console.log("from handle Delete list");
     try {
       const res = await fetch(`/api/listing/delete/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
+      console.log(data);
       if (data.success === false) {
         console.log("error deleting listing");
         return;
@@ -282,12 +285,17 @@ function Profile() {
               </Link>
               <div className="flex flex-col items-center">
                 <button
-                  onClick={() => handleDeleteList(listing._id)}
+                  onClick={handleDeleteList(listing._id)}
                   className="text-red-700 uppercase"
                 >
                   Delete
                 </button>
-                <button className="text-green-700 uppercase">Edit</button>
+                <button
+                  onClick={() => navigate(`/edit-listing/${listing._id}`)}
+                  className="text-green-700 uppercase"
+                >
+                  Edit
+                </button>
               </div>
             </div>
           ))}
