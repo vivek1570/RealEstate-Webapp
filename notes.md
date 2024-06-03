@@ -208,3 +208,14 @@ adding additional sm: along with actual size will lead to an mmobile size screen
 ---
 
 we can add swiper package for swiping images in the window for swipiing effect
+
+> link componet is from the routing library react-dom
+
+#### mailto function from react jsx
+
+```jsx
+            to={`mailto:${landlord.email}?subject=Regarding ${listing.name}&body=${message}`}
+
+```
+
+the above way we can add the mail and corresponding conatact list also
