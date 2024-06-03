@@ -204,3 +204,7 @@ model creation can be done in a separate file inside in models folder where we c
 
 use sm:flex-col for mobile screens
 adding additional sm: along with actual size will lead to an mmobile size screen view
+
+---
+
+we can add swiper package for swiping images in the window for swipiing effect
