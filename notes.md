@@ -219,3 +219,6 @@ we can add swiper package for swiping images in the window for swipiing effect
 ```
 
 the above way we can add the mail and corresponding conatact list also
+
+inside a form the button have a property of submit itself
+so it behaves as like a submitting in nature
