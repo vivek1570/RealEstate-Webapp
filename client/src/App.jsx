@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 import EditListing from "./pages/EditListing";
 import ShowList from "./pages/ShowList";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/listing/:id" element={<ShowList />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-listing" element={<CreateListing />} />
