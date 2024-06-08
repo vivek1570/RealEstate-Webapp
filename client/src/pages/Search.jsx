@@ -50,13 +50,12 @@ function Search() {
     }
     const fetchListings = async () => {
       setLoading(true);
+      setShowMore(false);
       const searchQuery = urlParams.toString();
       const res = await fetch(`/api/listing/get?${searchQuery}`);
       const data = await res.json();
       if (data.length > 8) {
         setShowMore(true);
-      } else {
-        setShowMore(false);
       }
       setListings(data);
       setLoading(false);
@@ -113,6 +112,21 @@ function Search() {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
+
+  const showMoreClick = async () => {
+    const num = listings.length;
+    const startIndex = num;
+    const urlParams = new URLSearchParams(location.search);
+    urlParams.set("start", startIndex);
+    const searchQuery = urlParams.toString();
+    const res = await fetch(`/api/listing/get?${searchQuery}`);
+    const data = await res.json();
+    if (data.length < 9) {
+      setShowMore(false);
+    }
+    setListings([...listings, ...data]);
+  };
+
   return (
     <div className="flex flex-col md:flex-row">
       <div className="p-7  border-b-2 md:border-r-2 md:min-h-screen">
@@ -229,6 +243,14 @@ function Search() {
             listings.map((listing) => (
               <Listings key={listing._id} listing={listing} />
             ))}
+          {/* {showMore && (
+            <button
+              onClick={showMoreClick}
+              className="text-xl text-green-500 text-center w-full"
+            >
+              Show More
+            </button>
+          )} */}
         </div>
       </div>
     </div>
