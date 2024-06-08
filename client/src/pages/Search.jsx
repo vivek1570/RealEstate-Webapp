@@ -56,6 +56,8 @@ function Search() {
       const data = await res.json();
       if (data.length > 8) {
         setShowMore(true);
+      } else {
+        setShowMore(false);
       }
       setListings(data);
       setLoading(false);
@@ -117,7 +119,7 @@ function Search() {
     const num = listings.length;
     const startIndex = num;
     const urlParams = new URLSearchParams(location.search);
-    urlParams.set("start", startIndex);
+    urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
     const res = await fetch(`/api/listing/get?${searchQuery}`);
     const data = await res.json();
@@ -243,14 +245,14 @@ function Search() {
             listings.map((listing) => (
               <Listings key={listing._id} listing={listing} />
             ))}
-          {/* {showMore && (
+          {showMore && (
             <button
               onClick={showMoreClick}
-              className="text-xl text-green-500 text-center w-full"
+              className=" text-green-700 hover:underline p-7 text-center w-full "
             >
-              Show More
+              Show More...
             </button>
-          )} */}
+          )}
         </div>
       </div>
     </div>
