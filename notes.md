@@ -222,3 +222,5 @@ the above way we can add the mail and corresponding conatact list also
 
 inside a form the button have a property of submit itself
 so it behaves as like a submitting in nature
+
+in tailwind css trucate a para only can do by using one line , but using the tailwind css clamp library we can have it in more than two lines
