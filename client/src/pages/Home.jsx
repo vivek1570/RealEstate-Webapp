@@ -15,17 +15,17 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("/api/listing/get?offer=true&limit=5");
+      const res = await fetch("/api/listing/get?offer=true&limit=4");
       const data = await res.json();
       setOfferData(data);
     };
     const fetchData1 = async () => {
-      const res = await fetch("/api/listing/get?type=rent&limit=5");
+      const res = await fetch("/api/listing/get?type=rent&limit=4");
       const data = await res.json();
       setRentData(data);
     };
     const fetchData2 = async () => {
-      const res = await fetch("/api/listing/get?type=sale&limit=5");
+      const res = await fetch("/api/listing/get?type=sale&limit=4");
       const data = await res.json();
       setSaleData(data);
     };
