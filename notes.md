@@ -224,3 +224,20 @@ inside a form the button have a property of submit itself
 so it behaves as like a submitting in nature
 
 in tailwind css trucate a para only can do by using one line , but using the tailwind css clamp library we can have it in more than two lines
+
+# Deploy in Vercel app
+
+- add the build command for vercel in package.json
+- we need to create a dynmic directory name for rendering it in any compputer the name is \_\_dirname=path.resolve();
+
+```
+The __dirname is a global variable in Node.js that gives the directory name of the current module. In your code, __dirname is being set to the root directory of your project using path.resolve().
+
+The dist directory typically contains the "distribution" version of your code. This is the version of your code that you intend to deploy or distribute. It's often minified and optimized for production.
+
+The line app.use(express.static(path.join(__dirname, "/cluent/dist"))); is telling Express to serve static files from the dist directory in your project root. Static files are files that are not processed by the server, like HTML, CSS, and client-side JavaScript files, images, etc.
+
+The app.get("*", (req, res) => {...} route handler is a catch-all handler that sends the index.html file in response to any request that doesn't match the previous routes. This is a common pattern in applications that use client-side routing with libraries like React Router.
+
+During the deployment stage, your client-side code (React, Angular, Vue, etc.) is usually built into a set of static files (HTML, CSS, JS) that can be served by any static file server. These files are typically placed in a dist or build directory. The server's job then becomes serving these static files and handling any API routes your application might have.
+```
